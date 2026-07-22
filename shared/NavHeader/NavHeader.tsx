@@ -1,8 +1,9 @@
 import { colors, fonts } from "@/constants/theme";
+import { useViewport } from "@/shared/stateMachine/ViewportProvider";
 import { Button } from "@react-native-material/core";
 import { router } from "expo-router";
 import { useState } from "react";
-import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 const NAV_LINKS = [
     { title: "Home", href: "/" },
@@ -12,8 +13,7 @@ const NAV_LINKS = [
 ] as const;
 
 export default function NavHeader() {
-    const { width } = useWindowDimensions();
-    const isMobile = width < 768; // Adjust breakpoint as needed
+    const { isMobile } = useViewport();
     const [menuOpen, setMenuOpen] = useState(false);
 
     const navigate = (href: string) => {
