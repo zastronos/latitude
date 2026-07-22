@@ -1,4 +1,5 @@
 import { colors, fonts } from '@/constants/theme';
+import LinkRow from '@/shared/LinkRow/LinkRow';
 import { Image } from 'expo-image';
 import { useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
@@ -7,9 +8,11 @@ type SongBoxProps = {
     title: string;
     subtitle?: string;
     youtubeVideoId?: string;
+    spotifyUrl?: string;
+    appleMusicUrl?: string;
 };
 
-export default function SongBox({ title, youtubeVideoId }: SongBoxProps) {
+export default function SongBox({ title, youtubeVideoId, appleMusicUrl, spotifyUrl }: SongBoxProps) {
     const [playing, setPlaying] = useState(false);
     const thumbnailUrl = youtubeVideoId
         ? `https://img.youtube.com/vi/${youtubeVideoId}/hqdefault.jpg`
@@ -44,6 +47,12 @@ export default function SongBox({ title, youtubeVideoId }: SongBoxProps) {
             </Pressable>
 
             <Text style={styles.title}>{title}</Text>
+            <LinkRow
+                width={48}
+                appleMusicUrl={`https://music.apple.com/gb/song/${appleMusicUrl}`}
+                spotifyUrl={`https://open.spotify.com/track/${spotifyUrl}`}
+                youtubeUrl={`https://youtu.be/${youtubeVideoId}`}
+            />
         </View>
     )
 }

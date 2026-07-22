@@ -11,22 +11,22 @@ type LinkRowProps = {
     width?: number;
 };
 
-export default function LinkRow({ height, width }: LinkRowProps) {
+export default function LinkRow({ height, width, spotifyUrl, appleMusicUrl, youtubeUrl }: LinkRowProps) {
     return (
         <View style={styles.row}>
             <TouchableOpacity onPress={() => {
-                Linking.openURL('https://open.spotify.com/artist/4l57qRht3VVng5HYzXCPvo');
+                Linking.openURL(spotifyUrl || 'https://open.spotify.com/artist/4l57qRht3VVng5HYzXCPvo');
             }}>
                 <SpotifyIcon width={width} height={height} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
-                Linking.openURL('https://music.apple.com/gb/artist/the-latitude/1502342387');
+                Linking.openURL(appleMusicUrl || 'https://music.apple.com/gb/artist/the-latitude/1502342387');
             }}>
                 <AppleMusicIcon width={width} height={height} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => {
-                Linking.openURL('https://www.youtube.com/channel/UC9e3A4cH8bOsT6z9MeXJ1hg');
+                Linking.openURL(youtubeUrl || 'https://www.youtube.com/channel/UC9e3A4cH8bOsT6z9MeXJ1hg');
             }}>
                 <YouTubeIcon width={width} height={height} />
             </TouchableOpacity>

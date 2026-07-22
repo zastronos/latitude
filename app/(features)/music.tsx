@@ -39,7 +39,13 @@ export default function TabTwoScreen() {
           numColumns={GRID_COLUMNS}
           renderItem={({ item }) =>
             item.type === 'song' ? (
-              <SongBox title={item.title} subtitle={item.subtitle} youtubeVideoId={item.youtubeVideoId} />
+              <SongBox
+                title={item.title}
+                subtitle={item.subtitle}
+                youtubeVideoId={item.youtubeVideoId}
+                appleMusicUrl={item.appleMusic}
+                spotifyUrl={item.spotify}
+              />
             ) : (
               <View style={{ flex: 1, marginHorizontal: 20, marginVertical: 30, maxWidth: 340 }} />
             )
