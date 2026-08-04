@@ -14,4 +14,5 @@ export const colors = {
     border: '#333333',
     highlight: '#FFFFFF',
     highlightText: '#000000',
+    backgroundLight: '#d5d5d5',
 } as const;

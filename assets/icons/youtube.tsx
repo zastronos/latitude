@@ -1,10 +1,12 @@
 import { Image } from 'expo-image';
 import { useWindowDimensions } from 'react-native';
-export default function YouTubeIcon() {
-    const{ width, height } = useWindowDimensions();
+import { IconProps } from './iconProps';
 
-    const imageWidth = Math.min(width * 0.2, 100);
-    const imageHeight = imageWidth;
+export default function YouTubeIcon({ width, height }: IconProps) {
+    const { width: windowWidth } = useWindowDimensions();
+
+    const imageWidth = width ?? Math.min(windowWidth * 0.2, 100);
+    const imageHeight = height ?? imageWidth;
 
     return (
         <Image

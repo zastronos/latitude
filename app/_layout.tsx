@@ -1,3 +1,4 @@
+import { ViewportProvider } from '@/shared/stateMachine/ViewportProvider';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -45,9 +46,11 @@ export default function RootLayout() {
 function RootLayoutNav() {
 
   return (
-      <Stack>
-        <Stack.Screen name="(features)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" options={{ headerShown: false }} />
-      </Stack>
+      <ViewportProvider>
+        <Stack>
+          <Stack.Screen name="(features)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" options={{ headerShown: false }} />
+        </Stack>
+      </ViewportProvider>
   );
 }

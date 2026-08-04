@@ -2,12 +2,12 @@ import AppleMusicIcon from '@/assets/icons/appleMusic';
 import SpotifyIcon from '@/assets/icons/spotify';
 import YouTubeIcon from '@/assets/icons/youtube';
 import { colors, fonts } from '@/constants/theme';
+import { useViewport } from '@/shared/stateMachine/ViewportProvider';
 import * as Linking from 'expo-linking';
-import { StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function Home() {
-    const { width } = useWindowDimensions();
-    const isMobile = width < 768; // Adjust breakpoint as needed
+    const { isMobile } = useViewport();
     const fontSize = isMobile ? 32 : 64;
 
     return (
