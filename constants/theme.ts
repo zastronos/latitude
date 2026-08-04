@@ -15,4 +15,5 @@ export const colors = {
     highlight: '#FFFFFF',
     highlightText: '#000000',
     backgroundLight: '#d5d5d5',
+    surface: '#161616',
 } as const;
